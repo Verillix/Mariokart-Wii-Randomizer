@@ -1,0 +1,65 @@
+<html>
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <head>
+        <title>Mario Kart Wii Randomizer</title>
+        <style>
+            body{
+                background-image: url(Background.jpg);
+                background-size:100%;
+                height:100%;
+                width:100%
+            }
+            #Button {
+                text-align:center;
+                display:block;
+                font-size:100px;
+                margin-left:650px
+            }
+            p{
+                text-align:center;
+                font-size:70px;
+                font-weight:300;
+                background-color:white;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <p id='character'>
+        </p>
+        <p id='kart'>
+        
+        </p>
+        <button py-click="randomCombo()" id='Button'>Click me</button>
+        <py-script>
+            import random
+            def randomCombo():
+                Characters = ["Mario", "Luigi", "Peach", "Yoshi", "Toad", "Koopa Troopa", "Baby Mario", "Baby Peach", "Wario", "Waluigi", "Bowser", "Donkey Kong", "Funky Kong","Baby Luigi", "Birdo", "Toadette", "Mii(Small)", "Mii(Medium)", "Mii(Large)", "King Boo", "Diddy Kong", "Baby Daisy", "Dry Bones", "Bowser Jr.", "Daisy"]
+                Small = ['Baby Mario', 'Baby Luigi', 'Baby Peach', 'Baby Daisy', 'Toad', 'Toadette', 'Koopa Troopa', 'Dry Bones','Mii(Small)']
+                Medium = ['Mario','Luigi', 'Peach', 'Daisy', 'Yoshi', 'Birdo', 'Diddy Kong', 'Bowser Jr','Mii(Medium)']
+                Large = ['Wario', 'Waluigi', 'Donkey Kong', 'Bowser', 'King Boo', 'Funky Kong','Mii(Large)']
+                rCharacter = random.choice(Characters)
+                if rCharacter in Small:
+                    size = 'small'
+                if rCharacter in Medium:
+                    size = 'medium'
+                if rCharacter in Large:
+                    size = 'large'
+
+
+                KartS = ['Standard Bike S', 'Magikruiser', 'Quacker', 'Jet Bubble', 'Bit Bike', 'Bullet Bike','Standard Kart S', 'Mini Beast', 'Tiny Titan', 'Blue Falcon', 'Cheep Charger', 'Booster Seat']
+                KartM = ['Standard Bike M', 'Sugarscoot', 'Sneakster', 'Dolphin Dasher', 'Zip Zip', 'Mach Bike','Standard Kart M', 'Sprinter', 'Daytripper', 'Wild Wing', 'Super Blooper', 'Classic Dragster']
+                KartL = ['Standard Bike L', 'Wario Bike', 'Shooting Star', 'Flame Runner', 'Spear', 'Phantom','Standard Kart L', 'Offroader', 'Flame Flyer', 'Jetsetter', 'Honeycoupe', 'Piranha Prowler']
+
+                if size == "small":
+                    randomKart = random.choice(KartS)
+                if size == "medium":
+                    randomKart = random.choice(KartM)
+                if size == "large":
+                    randomKart = random.choice(KartL)
+                pyscript.write('character',rCharacter)
+                pyscript.write('kart',randomKart)
+        </py-script>
+    </body>
+</html>
